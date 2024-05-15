@@ -1,10 +1,12 @@
 public class Game {
     private Computer computer;
     private Player player;
+    private NumberValidator numberValidator;
 
     public Game() {
         computer = new Computer();
         player = new Player();
+        numberValidator = new NumberValidator();
     }
 
     public void start() {
@@ -22,7 +24,7 @@ public class Game {
         while (true) {
             System.out.println(GuideMessage.NUMBER_ENTER);
             number = player.enterNumber();
-            if (!validateNumber(number)) {
+            if (!numberValidator.validatePlayerNumber(number)) {
                 System.out.println(GuideMessage.NUMBER_INVALID);
                 continue;
             }
@@ -64,30 +66,5 @@ public class Game {
 
     private boolean isNothing(int strikeCnt, int ballCnt) {
         return strikeCnt == 0 && ballCnt == 0;
-    }
-
-    private boolean validateNumber(String number) {
-        return isThreeDigits(number)
-                && isNumber(number)
-                && isDifferentNumbers(number);
-    }
-
-    private boolean isThreeDigits(String number) {
-        return number.length() == 3;
-    }
-
-    private boolean isNumber(String number) {
-        try {
-            Integer.parseInt(number);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
-    }
-
-    private boolean isDifferentNumbers(String number) {
-        return number.charAt(0) != number.charAt(1)
-                && number.charAt(1) != number.charAt(2)
-                && number.charAt(0) != number.charAt(2);
     }
 }

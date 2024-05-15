@@ -3,9 +3,11 @@ import java.util.Random;
 public class Computer {
     private String answer;
     private Random random;
+    private NumberValidator numberValidator;
 
     public Computer() {
         random = new Random();
+        numberValidator = new NumberValidator();
         answer = generateAnswer();
     }
 
@@ -21,14 +23,8 @@ public class Computer {
         String randomNumber;
         do {
             randomNumber = String.valueOf(random.nextInt(900) + 100);
-        } while (!validateNumber(randomNumber));
+        } while (!numberValidator.validatePlayerNumber(randomNumber));
 
         return randomNumber;
-    }
-
-    private boolean validateNumber(String number) {
-        return number.charAt(0) != number.charAt(1)
-                && number.charAt(1) != number.charAt(2)
-                && number.charAt(0) != number.charAt(2);
     }
 }

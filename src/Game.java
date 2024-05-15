@@ -63,26 +63,17 @@ public class Game {
     }
 
     private boolean isNothing(int strikeCnt, int ballCnt) {
-        if (strikeCnt != 0 || ballCnt != 0) {
-            return false;
-        }
-        return true;
+        return strikeCnt == 0 && ballCnt == 0;
     }
 
     private boolean validateNumber(String number) {
-        if (!isThreeDigits(number)
-            || !isNumber(number)
-            || !isDifferentNumbers(number)) {
-            return false;
-        }
-        return true;
+        return isThreeDigits(number)
+                && isNumber(number)
+                && isDifferentNumbers(number);
     }
 
     private boolean isThreeDigits(String number) {
-        if (number.length() != 3) {
-            return false;
-        }
-        return true;
+        return number.length() == 3;
     }
 
     private boolean isNumber(String number) {
@@ -95,11 +86,8 @@ public class Game {
     }
 
     private boolean isDifferentNumbers(String number) {
-        if (number.charAt(0) == number.charAt(1)
-                || number.charAt(1) == number.charAt(2)
-                || number.charAt(0) == number.charAt(2)) {
-            return false;
-        }
-        return true;
+        return number.charAt(0) != number.charAt(1)
+                && number.charAt(1) != number.charAt(2)
+                && number.charAt(0) != number.charAt(2);
     }
 }

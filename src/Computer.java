@@ -27,11 +27,8 @@ public class Computer {
     }
 
     private boolean validateNumber(String number) {
-        if (number.charAt(0) == number.charAt(1)
-            || number.charAt(1) == number.charAt(2)
-            || number.charAt(0) == number.charAt(2)) {
-            return false;
-        }
-        return true;
+        return number.charAt(0) != number.charAt(1)
+                && number.charAt(1) != number.charAt(2)
+                && number.charAt(0) != number.charAt(2);
     }
 }

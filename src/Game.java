@@ -39,7 +39,7 @@ public class Game {
     private boolean askRestartOrNot() {
         System.out.println(GuideMessage.ENTER_RESTART);
         Number restartNumber = numberMaker.generatePlayerNumber();
-        if (!"1".equals(restartNumber.getCharAt(0))) { // 조건 수정 필요
+        if (!"1".equals(restartNumber.toString())) {
             System.out.println(GuideMessage.GAME_EXIT);
             return false;
         }

@@ -41,8 +41,6 @@ Player, Computer, Game 등을 없앨 필요는 없고, 이들을 도와주는 �
 - [ ] NumberInputManager 
 - [x] GuideMessage
 - [ ] ErrorMessage
-
-(Game 관련)
-- Game
-- GameManager or Judge
+- [x] Game
+- [ ] GameJudge
 

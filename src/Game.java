@@ -1,12 +1,14 @@
+import message.GuideMessage;
+
 public class Game {
     private Computer computer;
-    private Player player;
     private NumberValidator numberValidator;
+    private NumberMaker numberMaker;
 
     public Game() {
         computer = new Computer();
-        player = new Player();
         numberValidator = new NumberValidator();
+        numberMaker = new NumberMaker();
     }
 
     public void start() {
@@ -19,16 +21,16 @@ public class Game {
     }
 
     private void playOneGame() {
-        String answer = computer.getAnswer();
-        String number;
+        Number computerNumber = computer.getComputerNumber();
+        Number playerNumber;
         while (true) {
             System.out.println(GuideMessage.NUMBER_ENTER);
-            number = player.enterNumber();
-            if (!numberValidator.validatePlayerNumber(number)) {
+            playerNumber = numberMaker.generatePlayerNumber();
+            if (!numberValidator.validatePlayerNumber(playerNumber)) {
                 System.out.println(GuideMessage.NUMBER_INVALID);
                 continue;
             }
-            if (judgeThreeStrikes(number, answer)) {
+            if (judgeThreeStrikes(playerNumber, computerNumber)) {
                 break;
             }
         }
@@ -36,8 +38,8 @@ public class Game {
 
     private boolean askRestartOrNot() {
         System.out.println(GuideMessage.ENTER_RESTART);
-        String restartNumber = player.enterNumber();
-        if (!"1".equals(restartNumber)) {
+        Number restartNumber = numberMaker.generatePlayerNumber();
+        if (!"1".equals(restartNumber.getCharAt(0))) { // 조건 수정 필요
             System.out.println(GuideMessage.GAME_EXIT);
             return false;
         }
@@ -46,13 +48,13 @@ public class Game {
         return true;
     }
 
-    private boolean judgeThreeStrikes(String number, String answer) {
+    private boolean judgeThreeStrikes(Number playerNumber, Number computerNumber) {
         int strikeCnt = 0;
         int ballCnt = 0;
         for (int i = 0; i < 3; i++) {
-            if (number.charAt(i) == answer.charAt(i)) {
+            if (playerNumber.getCharAt(i) == computerNumber.getCharAt(i)) {
                 strikeCnt++;
-            } else if (answer.contains(String.valueOf(number.charAt(i)))) {
+            } else if (computerNumber.contains(String.valueOf(playerNumber.getCharAt(i)))) {
                 ballCnt++;
             }
         }

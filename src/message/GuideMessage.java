@@ -1,3 +1,5 @@
+package message;
+
 public enum GuideMessage {
     GAME_START("게임을 시작합니다. "),
     GAME_RESTART("게임을 재시작합니다."),

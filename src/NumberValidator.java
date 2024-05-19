@@ -1,31 +1,33 @@
 public class NumberValidator {
 
-    public boolean validateComputerNumber(String number) {
-        return isDifferentNumbers(number);
+    public boolean validateComputerNumber(Number number) {
+        return hasDifferentUnits(number);
     }
 
-    public boolean validatePlayerNumber(String number) {
+    public boolean validatePlayerNumber(Number number) {
         return isThreeDigits(number)
                 && isNumber(number)
-                && isDifferentNumbers(number);
+                && hasDifferentUnits(number);
     }
 
-    private boolean isThreeDigits(String number) {
-        return number.length() == 3;
+    private boolean isThreeDigits(Number number) {
+        return number.toString().length() == 3;
     }
 
-    private boolean isNumber(String number) {
+    private boolean isNumber(Number number) {
         try {
-            Integer.parseInt(number);
+            Integer.parseInt(number.toString());
         } catch (NumberFormatException e) {
             return false;
         }
+
         return true;
     }
 
-    private boolean isDifferentNumbers(String number) {
-        return number.charAt(0) != number.charAt(1)
-                && number.charAt(1) != number.charAt(2)
-                && number.charAt(0) != number.charAt(2);
+    private boolean hasDifferentUnits(Number number) {
+        return number.getHundreds() != number.getTens()
+                && number.getTens() != number.getUnits()
+                && number.getHundreds() != number.getUnits();
     }
+
 }

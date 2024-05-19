@@ -1,21 +1,16 @@
 import java.util.Scanner;
 
 public class Player {
-    private String number;
-
-    private Scanner scanner;
+    private Number playerNumber;
+    private NumberMaker numberMaker;
 
     public Player() {
-        scanner = new Scanner(System.in);
+        numberMaker = new NumberMaker();
+        playerNumber = numberMaker.generatePlayerNumber();
     }
 
-    public String getNumber() {
-        return number;
-    }
-
-    public String enterNumber() {
-        number = scanner.nextLine();
-        return number;
+    public Number getPlayerNumber() {
+        return playerNumber;
     }
 
 }

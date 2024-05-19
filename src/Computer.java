@@ -1,30 +1,16 @@
 import java.util.Random;
 
 public class Computer {
-    private String answer;
-    private Random random;
-    private NumberValidator numberValidator;
+    private Number computerNumber;
+    private NumberMaker numberMaker;
 
     public Computer() {
-        random = new Random();
-        numberValidator = new NumberValidator();
-        answer = generateAnswer();
+        numberMaker = new NumberMaker();
+        computerNumber = numberMaker.generateComputerNumber();
     }
 
-    public String getAnswer() {
-        return answer;
+    public Number getComputerNumber() {
+        return computerNumber;
     }
 
-    public String generateAnswer() {
-        return generateRandomNumber();
-    }
-
-    private String generateRandomNumber() {
-        String randomNumber;
-        do {
-            randomNumber = String.valueOf(random.nextInt(900) + 100);
-        } while (!numberValidator.validatePlayerNumber(randomNumber));
-
-        return randomNumber;
-    }
 }

@@ -1,4 +1,4 @@
-package message;
+package main.message;
 
 public enum GuideMessage {
     GAME_START("게임을 시작합니다. "),
@@ -8,8 +8,8 @@ public enum GuideMessage {
     NUMBER_ENTER("✅각 자리가 서로 다른 ✅세 자리 ✅숫자를 입력하세요."),
     NUMBER_INVALID("입력 제약 조건을 다시 한 번 확인해주세요."),
 
-    RESULT_MESSAGE("%d 스트라이크, %d 볼입니다."),
-    NOTHING("낫싱!"),
+    RESULT_MESSAGE("%d스트라이크 %d볼"),
+    NOTHING("낫싱"),
 
     ;
 

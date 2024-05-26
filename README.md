@@ -28,19 +28,23 @@
 ---
 
 ### 리팩토링
-기존의 Player와 Computer 등 주체(?)의 메서드를 보면서, 해당 역할을 할 수 있는 클래스로 따로 분리하는 쪽으로 방향을 잡음 <br>
-Player, Computer, Game 등을 없앨 필요는 없고, 이들을 도와주는 객체를 다양하게 만들어보기 <br>
+기존의 Player와 main.Computer 등 주체(?)의 메서드를 보면서, 해당 역할을 할 수 있는 클래스로 따로 분리하는 쪽으로 방향을 잡음 <br>
+main.Player, main.Computer, main.Game 등을 없앨 필요는 없고, 이들을 도와주는 객체를 다양하게 만들어보기 <br>
 
-- [x] Number
-- [x] NumberUnit
+- [x] main.Number
+- [x] main.NumberUnit
 - [ ] Strike
 - [ ] Ball
-- [x] NumberValidator
+- [x] main.NumberValidator
   - 자릿수 확인, 숫자 여부 확인 등 모두 클래스로 나누는 것이 좋나?
-- [x] NumberMaker
+- [x] main.NumberMaker
 - [ ] NumberInputManager 
 - [x] GuideMessage
 - [ ] ErrorMessage
-- [x] Game
+- [x] main.Game
 - [ ] GameJudge
 
+---
+
+### 다시 생각할 것
+- NumberMaker가 있는데 왜 Number 생성자를 만들었지? 

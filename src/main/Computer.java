@@ -1,4 +1,4 @@
-import java.util.Random;
+package main;
 
 public class Computer {
     private Number computerNumber;

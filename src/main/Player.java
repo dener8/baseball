@@ -1,4 +1,7 @@
-import java.util.Scanner;
+package main;
+
+import main.Number;
+import main.NumberMaker;
 
 public class Player {
     private Number playerNumber;

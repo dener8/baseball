@@ -1,9 +1,12 @@
-import message.GuideMessage;
+package main;
+
+import main.message.GuideMessage;
 
 public class Game {
     private Computer computer;
     private NumberValidator numberValidator;
     private NumberMaker numberMaker;
+    private String message;
 
     public Game() {
         computer = new Computer();
@@ -48,7 +51,7 @@ public class Game {
         return true;
     }
 
-    private boolean judgeThreeStrikes(Number playerNumber, Number computerNumber) {
+    public boolean judgeThreeStrikes(Number playerNumber, Number computerNumber) {
         int strikeCnt = 0;
         int ballCnt = 0;
         for (int i = 0; i < 3; i++) {
@@ -59,14 +62,20 @@ public class Game {
             }
         }
         if (isNothing(strikeCnt, ballCnt)) {
-            System.out.println(GuideMessage.NOTHING);
+            message = String.valueOf(GuideMessage.NOTHING);
+            System.out.println(message);
             return false;
         }
-        System.out.println(GuideMessage.RESULT_MESSAGE.format(strikeCnt, ballCnt));
+        message = GuideMessage.RESULT_MESSAGE.format(strikeCnt, ballCnt);
+        System.out.println(message);
         return strikeCnt == 3;
     }
 
     private boolean isNothing(int strikeCnt, int ballCnt) {
         return strikeCnt == 0 && ballCnt == 0;
+    }
+
+    public String getMessage() {
+        return message;
     }
 }

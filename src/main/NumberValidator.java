@@ -1,3 +1,5 @@
+package main;
+
 public class NumberValidator {
 
     public boolean validateComputerNumber(Number number) {

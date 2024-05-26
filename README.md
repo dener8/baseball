@@ -48,3 +48,4 @@ main.Player, main.Computer, main.Game 등을 없앨 필요는 없고, 이들을 
 
 ### 다시 생각할 것
 - NumberMaker가 있는데 왜 Number 생성자를 만들었지? 
+- getter를 계속 쓰고 있다. 줄이는 방법 생각할 것

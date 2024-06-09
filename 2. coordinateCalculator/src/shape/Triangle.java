@@ -1,3 +1,5 @@
+package shape;
+
 import java.util.List;
 
 public class Triangle extends TwoDemensionalShape {
@@ -7,7 +9,7 @@ public class Triangle extends TwoDemensionalShape {
     }
 
     @Override
-    double calculateArea() {
+    public double calculateArea() {
         return calculateTriangleArea(points);
     }
 

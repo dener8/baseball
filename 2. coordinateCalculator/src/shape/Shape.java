@@ -1,7 +1,9 @@
+package shape;
+
 import java.util.List;
 
 /*
-Line, Triangle, Rectangle
+shape.Line, shape.Triangle, shape.Rectangle
  */
 public abstract class Shape {
 
@@ -11,7 +13,7 @@ public abstract class Shape {
         this.points = points;
     }
 
-    double calculateLength(Point pointA, Point pointB) {
+    public double calculateLength(Point pointA, Point pointB) {
         return Math.sqrt(
                 Math.pow(pointA.getX() - pointB.getX(), 2)
                 + Math.pow(pointA.getY() - pointB.getY(), 2)

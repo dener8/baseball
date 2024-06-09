@@ -1,3 +1,5 @@
+package shape;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -10,7 +12,7 @@ public class Rectangle extends TwoDemensionalShape {
     }
 
     @Override
-    double calculateArea() {
+    public double calculateArea() {
         return calculateRectangleArea(points);
     }
 
@@ -27,6 +29,6 @@ public class Rectangle extends TwoDemensionalShape {
         List<Integer> yList = new ArrayList<>(ySet);
 
         return Math.sqrt(Math.pow(xList.get(0) - xList.get(1), 2))
-                - Math.sqrt(Math.pow(yList.get(0) - yList.get(1), 2));
+                * Math.sqrt(Math.pow(yList.get(0) - yList.get(1), 2));
     }
 }

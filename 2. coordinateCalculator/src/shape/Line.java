@@ -1,3 +1,5 @@
+package shape;
+
 import java.util.List;
 
 public class Line extends Shape {

@@ -1,3 +1,5 @@
+package shape;
+
 import java.util.List;
 
 public abstract class TwoDemensionalShape extends Shape {
@@ -6,6 +8,6 @@ public abstract class TwoDemensionalShape extends Shape {
         super(points);
     }
 
-    abstract double calculateArea();
+    public abstract double calculateArea();
 
 }

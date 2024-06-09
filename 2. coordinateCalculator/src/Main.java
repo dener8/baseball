@@ -1,33 +1,41 @@
+import exception.InvalidNumberException;
+import shape.Line;
+import shape.Point;
+import shape.Rectangle;
+import shape.Triangle;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Coordinates coordinates = new Coordinates();
+        List<Point> points = null;
+        String userInput;
+
         Scanner sc = new Scanner(System.in);
-        String inputString = sc.next();
 
-        InputValidator validator = new InputValidator();
-        validator.validate(inputString);
+        while (points == null) {
+            userInput = sc.next();
 
+            try {
+                points = coordinates.extractPointList(userInput);
+            } catch (InvalidNumberException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
+        int count = points.size();
+
+        /*
+        이렇게 하면 하드코딩 되어버림. 수정 필요 (cf. 전략패턴)
+         */
+        if (count == 2) {
+            System.out.println(new Line(points).calculateLength(points.get(0), points.get(1)));
+        } else if (count == 3) {
+            System.out.println(new Triangle(points).calculateArea());
+        } else if (count == 4) {
+            System.out.println(new Rectangle(points).calculateArea());
+        }
     }
 }
-
-/*
-calculator가 String을 입력 받고,
-계산 외적인 행위는 다른 클래스가 분담하는 것이 좋을 듯.
-0. 공백 삭제
-1. 하이픈 split
-2. 괄호 체크
-3. 쉼표 체크
-4. 좌표 범위 체크
-
-다 체크한 후 좌표가 2~4개 일텐데, 이 좌표를 어떻게 세 분기로 나누어 저장해두지? 어떤 객체에?
-List<Point>를 반환하면 좋겠다.
-
-
-인터페이스를 사용해야 하면..
-Calculator를 interface로 두고,
-TriangleCalculator, RectangleCalculator 등으로 나눌까
-
-
- */

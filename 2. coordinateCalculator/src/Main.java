@@ -24,6 +24,8 @@ public class Main {
                 points = coordinates.extractPointList(userInput);
             } catch (InvalidNumberException e) {
                 System.out.println(e.getMessage());
+            } catch (Exception e) {
+                System.out.println(Message.INVALID_INPUT);
             }
         }
 

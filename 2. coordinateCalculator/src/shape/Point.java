@@ -8,7 +8,7 @@ public class Point {
 
     public Point(int x, int y) throws InvalidNumberException {
         if (x < 0 || x > 24 || y < 0 || y > 24) {
-            throw new InvalidNumberException(Message.INVALID_INPUT);
+            throw new InvalidNumberException(Message.OUT_OF_RANGE_INPUT);
         }
         this.x = x;
         this.y = y;

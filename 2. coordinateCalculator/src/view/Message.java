@@ -6,8 +6,10 @@ public enum Message {
     입력 오류
      */
     USER_INPUT("좌표를 입력해주세요."),
-    INVALID_INPUT("0 이상 24 이하로 입력해주세요."),
-    RESULT_VALUE("정답: %.4f")
+    OUT_OF_RANGE_INPUT("0 이상 24 이하로 입력해주세요."),
+    RESULT_VALUE("정답: %.4f"),
+    INVALID_INPUT("옳지 않은 입력 형식입니다."),
+
 
     ;
 

@@ -25,16 +25,16 @@ public class Main {
             }
         }
 
-        int count = points.size();
+        int pointsCnt = points.size();
 
         /*
         이렇게 하면 하드코딩 되어버림. 수정 필요 (cf. 전략패턴)
          */
-        if (count == 2) {
+        if (pointsCnt == 2) {
             System.out.println(new Line(points).calculateLength(points.get(0), points.get(1)));
-        } else if (count == 3) {
+        } else if (pointsCnt == 3) {
             System.out.println(new Triangle(points).calculateArea());
-        } else if (count == 4) {
+        } else if (pointsCnt == 4) {
             System.out.println(new Rectangle(points).calculateArea());
         }
     }

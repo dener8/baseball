@@ -3,6 +3,7 @@ import shape.Line;
 import shape.Point;
 import shape.Rectangle;
 import shape.Triangle;
+import view.Message;
 
 import java.util.List;
 import java.util.Scanner;
@@ -16,6 +17,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         while (points == null) {
+            System.out.println(Message.USER_INPUT);
             userInput = sc.next();
 
             try {
@@ -30,12 +32,15 @@ public class Main {
         /*
         이렇게 하면 하드코딩 되어버림. 수정 필요 (cf. 전략패턴)
          */
+        double answer = 0;
         if (pointsCnt == 2) {
-            System.out.println(new Line(points).calculateLength(points.get(0), points.get(1)));
+            answer = new Line(points).calculateLength(points.get(0), points.get(1));
         } else if (pointsCnt == 3) {
-            System.out.println(new Triangle(points).calculateArea());
+            answer = new Triangle(points).calculateArea();
         } else if (pointsCnt == 4) {
-            System.out.println(new Rectangle(points).calculateArea());
+            answer = new Rectangle(points).calculateArea();
         }
+
+        System.out.println(Message.RESULT_VALUE.format(answer));
     }
 }

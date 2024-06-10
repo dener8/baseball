@@ -1,7 +1,9 @@
 package exception;
 
+import view.Message;
+
 public class InvalidNumberException extends Exception {
-    public InvalidNumberException(String message) {
-        super(message);
+    public InvalidNumberException(Message message) {
+        super(message.toString());
     }
 }

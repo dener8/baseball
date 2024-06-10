@@ -1,9 +1,6 @@
 package shape;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Rectangle extends TwoDemensionalShape {
 
@@ -17,18 +14,19 @@ public class Rectangle extends TwoDemensionalShape {
     }
 
     private double calculateRectangleArea(List<Point> points) {
-        Set<Integer> xSet = new HashSet<>();
-        Set<Integer> ySet = new HashSet<>();
 
-        for (Point point : points) {
-            xSet.add(point.getX());
-            ySet.add(point.getY());
+        /*
+        특정 한 점에서 다른 세 점까지의 거리를 구한 뒤,
+        길이가 작은 두 값의 곱이 사각형의 넓이
+         */
+        List<Double> candidates = new ArrayList<>();
+        Point flagPoint = points.get(0);
+
+        for (int i = 1; i < 4; i++) {
+            candidates.add(calculateLength(flagPoint, points.get(i)));
         }
+        Collections.sort(candidates);
 
-        List<Integer> xList = new ArrayList<>(xSet);
-        List<Integer> yList = new ArrayList<>(ySet);
-
-        return Math.sqrt(Math.pow(xList.get(0) - xList.get(1), 2))
-                * Math.sqrt(Math.pow(yList.get(0) - yList.get(1), 2));
+        return candidates.get(0) * candidates.get(1);
     }
 }

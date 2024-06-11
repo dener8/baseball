@@ -1,9 +1,11 @@
-import exception.InvalidNumberException;
-import shape.Line;
-import shape.Point;
-import shape.Rectangle;
-import shape.Triangle;
-import view.Message;
+package main;
+
+import main.exception.InvalidNumberException;
+import main.shape.Line;
+import main.shape.Point;
+import main.shape.Rectangle;
+import main.shape.Triangle;
+import main.view.Message;
 
 import java.util.List;
 import java.util.Scanner;

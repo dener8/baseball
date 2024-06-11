@@ -1,6 +1,6 @@
-package exception;
+package main.exception;
 
-import view.Message;
+import main.view.Message;
 
 public class InvalidNumberException extends Exception {
     public InvalidNumberException(Message message) {

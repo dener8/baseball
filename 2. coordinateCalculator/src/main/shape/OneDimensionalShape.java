@@ -1,4 +1,4 @@
-package shape;
+package main.shape;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
-package shape;
+package main.shape;
 
 import java.util.List;
 
 /*
-shape.Line, shape.Triangle, shape.Rectangle
+main.shape.Line, main.shape.Triangle, main.shape.Rectangle
  */
 public abstract class Shape {
 

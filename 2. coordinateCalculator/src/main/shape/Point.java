@@ -1,7 +1,7 @@
-package shape;
+package main.shape;
 
-import exception.InvalidNumberException;
-import view.Message;
+import main.exception.InvalidNumberException;
+import main.view.Message;
 
 public class Point {
     int x, y;
@@ -24,7 +24,7 @@ public class Point {
 
     @Override
     public String toString() {
-        return "shape.Point{" +
+        return "main.shape.Point{" +
                 "x=" + x +
                 ", y=" + y +
                 '}';

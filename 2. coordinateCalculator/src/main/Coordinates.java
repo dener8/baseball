@@ -1,5 +1,7 @@
-import exception.InvalidNumberException;
-import shape.Point;
+package main;
+
+import main.exception.InvalidNumberException;
+import main.shape.Point;
 
 import java.util.ArrayList;
 import java.util.List;
